@@ -3,30 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WeatherClient.MainPage">
 
-    <Grid RowDefinitions="Auto,Auto,*,Auto" Margin="5">
+    <Grid RowDefinitions="Auto, Auto, *, Auto" Margin="5">
         <VerticalStackLayout>
-            <Label Text="Welcome to the weather app! Press the 'Refresh' button to get the latest forecast. Remember to provide an address for the forecast!" />
-            <BoxView BackgroundColor="Black" HeightRequest="4" Margin="2,10" />
-            <HorizontalStackLayout>
-                <Label Text="Postal Code:" VerticalOptions="Center" Margin="0,0,20,0" />
-                <Entry x:Name="txtPostalCode" WidthRequest="100" Margin="0,0,20,0" />
-                <Button x:Name="btnRefresh" Text="Refresh" Grid.Row="3" Clicked="btnRefresh_Clicked" />
+            <Label Text="Welcome to the weather app! Press the 'Refresh' button to get the latest forecast." Margin="0,10" />
+
+            <HorizontalStackLayout Spacing="10">
+                <Label Text="Postal Code:" VerticalOptions="Center" />
+                <Entry x:Name="txtPostalCode" WidthRequest="100" />
+                <Button x:Name="btnRefresh" Text="Refresh" Clicked="btnRefresh_Clicked" />
                 <ActivityIndicator x:Name="actIsBusy" Margin="5,0,0,0" />
             </HorizontalStackLayout>
-            <BoxView BackgroundColor="Black" HeightRequest="4" Margin="2,10" />
-            <Grid Grid.Row="2" RowDefinitions="Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, Auto" Margin="0,5,0,0">
+
+            <Grid Grid.Row="2" RowDefinitions="Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, Auto" Margin="0,10,0,0">
+
                 <Label Grid.Row="0" Grid.Column="0" Text="Condition" VerticalOptions="Center" />
-                <Image x:Name="imgCondition" Grid.Row="0" Grid.Column="1" HeightRequest="25" WidthRequest="25" Source="question.png" HorizontalOptions="Start" />
+                <Image x:Name="imgCondition" Grid.Row="0" Grid.Column="1" HeightRequest="25" WidthRequest="25" Source="question.png" />
+
                 <Label Grid.Row="1" Grid.Column="0" Text="Temperature" Margin="0,0,20,0" />
-                <Label x:Name="lblTemperature" Grid.Row="1" Grid.Column="1" Text="0" />
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Temperature}" />
+
                 <Label Grid.Row="2" Grid.Column="0" Text="Humidity" Margin="0,0,20,0" />
-                <Label x:Name="lblHumidity" Grid.Row="2" Grid.Column="1" Text="0" />
+                <Label Grid.Row="2" Grid.Column="1" Text="{Binding Humidity}" />
+
                 <Label Grid.Row="3" Grid.Column="0" Text="Precipitation" Margin="0,0,20,0" />
-                <Label x:Name="lblPrecipitation" Grid.Row="3" Grid.Column="1" Text="0" />
+                <Label Grid.Row="3" Grid.Column="1" Text="{Binding Precipitation}" />
+
                 <Label Grid.Row="4" Grid.Column="0" Text="Wind" Margin="0,0,20,0" />
-                <Label x:Name="lblWind" Grid.Row="4" Grid.Column="1" Text="0" />
+                <Label Grid.Row="4" Grid.Column="1" Text="{Binding Wind}" />
+
             </Grid>
         </VerticalStackLayout>
     </Grid>
-
 </ContentPage>
